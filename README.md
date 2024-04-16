@@ -1,0 +1,19 @@
+## How to deploy and expose a test python application   
+
+oc new-project testapp    
+oc new-app --name=my-python-app .   
+oc new-build --name=my-python-app --strategy=docker --binary
+oc start-build my-python-app --from-dir=. --follow
+oc status    
+oc get pods
+oc expose service my-python-app
+oc get route my-python-app
+
+oc expose pod my-python-app-6d984cf756-kx8tg --port=80 --name=my-python-app-svc
+oc expose service my-python-app-svc --port=80
+
+
+* oc expose service my-python-app --port=80
+
+
+
