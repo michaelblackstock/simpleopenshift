@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pythontest-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pythontest
+  template:
+    metadata:
+      labels:
+        app: pythontest
+    spec:
+      containers:
+      - name: pythontest-container
+        image: quay.io/mblackst1/pythontest:3.9
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pythontest-service
+spec:
+  selector:
+    app: pythontest
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+

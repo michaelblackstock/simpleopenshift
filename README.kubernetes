@@ -1,0 +1,6 @@
+# Deploy application   
+##  Use OpenShift oc login to establish kubernetes context
+
+## Deploy application   
+kubectl apply -f deployment.yaml   
+

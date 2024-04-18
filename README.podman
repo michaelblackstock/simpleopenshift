@@ -1,0 +1,18 @@
+podman machine init
+podman machine start
+
+# Build local image  
+podman build .
+podman image ls
+
+# login into quay.io with Redhat account
+podman login
+podman image ls
+podman login quay.io
+
+# build labeled image for quay.io
+podman build -t quay.io/mblackst1/pythonrepo/python-app:latest .
+podman image ls
+podman push quay.io/mblackst1/pythontest:latest
+
+
