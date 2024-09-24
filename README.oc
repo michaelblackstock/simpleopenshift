@@ -1,4 +1,4 @@
-## How to deploy and expose a test python application using oc   
+## How to deploy and expose a test python application using oc      
 
 oc new-project testapp    
 oc new-app --name=my-python-app .   
